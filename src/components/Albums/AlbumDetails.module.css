@@ -11,3 +11,8 @@ h1,h2, h3, h4, h5, span, p, a {
     padding: 0;
     margin: 0;
 }
+
+.image500px {
+    width: 80%;
+    height: 80%;
+}

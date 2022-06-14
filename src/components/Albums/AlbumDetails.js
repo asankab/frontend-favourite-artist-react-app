@@ -52,7 +52,12 @@ function AlbumDetails(props) {
           <div className={classes.albumDetailsWrapper}>
             <div>
               <a href={url}>
-                <img src={imageUrl} alt={name} title={name} />
+                <img
+                  src={imageUrl}
+                  alt={name}
+                  title={name}
+                  className={classes.image500px}
+                />
               </a>
               <h3 className={classes['no-space']}>{name} &nbsp;</h3>
               <HeartTwoTone

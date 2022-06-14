@@ -54,23 +54,16 @@ function AlbumDetails(props) {
               <a href={url}>
                 <img src={imageUrl} alt={name} title={name} />
               </a>
-              <h3 className={classes['no-space']}>
-                {name} &nbsp;
-                {isMarkedAsFavorite === 'true' || markedAsFavorite == 'true' ? (
-                  <HeartTwoTone
-                    title="click to mark/unmark as favourite"
-                    onClick={favoriteToggleHandler}
-                    twoToneColor="#FF0000"
-                  />
-                ) : (
-                  <HeartTwoTone
-                    title="click to mark/unmark as favourite"
-                    onClick={favoriteToggleHandler}
-                    twoToneColor="#999999"
-                  />
-                )}
-              </h3>
-
+              <h3 className={classes['no-space']}>{name} &nbsp;</h3>
+              <HeartTwoTone
+                title="click to toggle mark/unmark as favourite album"
+                onClick={favoriteToggleHandler}
+                twoToneColor={
+                  isMarkedAsFavorite === 'true' || markedAsFavorite == 'true'
+                    ? '#FF0000'
+                    : '#999999'
+                }
+              />
               <h5>{artist}</h5>
             </div>
           </div>

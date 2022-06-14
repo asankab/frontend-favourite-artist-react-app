@@ -6,27 +6,43 @@ import { fetch } from './../../apis/index';
 import Spinner from './../UI/Layout/Spinner';
 
 import TrackList from './../Tracks/TracksList';
+import { HeartTwoTone } from '@ant-design/icons';
+import { setValue, getValueByKey } from './../../utils/localStorageUtil';
 
 function AlbumDetails(props) {
   const location = useLocation();
   const { album } = location.state;
   const [loading, setLoading] = useState(false);
-  const { name, artist, image, url } = album;
+  const [markedAsFavorite, setMarkedAsFavorite] = useState(false);
+  const { mbid, name, artist, image, url } = album;
   const imageUrl = image.length > 0 && image[image.length - 1]['#text'];
   const fetchTracksByArtistURL = `https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=034cd8882ca9b14875f8a7a907aafbbd&format=json`;
   const [tracks, setTracks] = useState([]);
+  const isMarkedAsFavorite = getValueByKey(mbid);
 
   useEffect(() => {
     const fetchTracks = async () => {
       setLoading(true);
       const response = await fetch(fetchTracksByArtistURL);
-      console.log(response.data.toptracks.track);
       setTracks(response.data.toptracks.track);
       setLoading(false);
     };
 
     fetchTracks();
   }, []);
+
+  const favoriteToggleHandler = (event) => {
+    let isFavourite = getValueByKey(mbid);
+
+    if (isFavourite === 'true') {
+      isFavourite = false;
+    } else {
+      isFavourite = true;
+    }
+
+    setValue(mbid, isFavourite);
+    setMarkedAsFavorite(isFavourite);
+  };
 
   return (
     <>
@@ -38,7 +54,23 @@ function AlbumDetails(props) {
               <a href={url}>
                 <img src={imageUrl} alt={name} title={name} />
               </a>
-              <h3 className={classes['no-space']}>{name}</h3>
+              <h3 className={classes['no-space']}>
+                {name} &nbsp;
+                {isMarkedAsFavorite === 'true' || markedAsFavorite == 'true' ? (
+                  <HeartTwoTone
+                    title="click to mark/unmark as favourite"
+                    onClick={favoriteToggleHandler}
+                    twoToneColor="#FF0000"
+                  />
+                ) : (
+                  <HeartTwoTone
+                    title="click to mark/unmark as favourite"
+                    onClick={favoriteToggleHandler}
+                    twoToneColor="#999999"
+                  />
+                )}
+              </h3>
+
               <h5>{artist}</h5>
             </div>
           </div>

@@ -1,3 +1,3 @@
-export const getValueByKey = (key) => LocalStorage.getItem(key);
+export const getValueByKey = (key) => localStorage.getItem(key);
 
-export const setValue = (key, value) => LocalStorage.setItem(key, value);
+export const setValue = (key, value) => localStorage.setItem(key, value);

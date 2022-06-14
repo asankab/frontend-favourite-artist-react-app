@@ -4,6 +4,8 @@ import { Card } from 'antd';
 import classes from '../Albums/Album.module.css';
 import { Link } from 'react-router-dom';
 import defaultImage from './../../assests/images/noimage.jpg';
+import { getValueByKey } from './../../utils/localStorageUtil';
+import { HeartTwoTone } from '@ant-design/icons';
 
 function Album(props) {
   const { mbid, name, image } = props.album;
@@ -16,6 +18,8 @@ function Album(props) {
       ? maxTitleTextLengthToDisplay
       : name.length - 1
   )} ${name.length > maxTitleTextLengthToDisplay ? '...' : ' '}`;
+
+  const isMarkedAsFavorite = getValueByKey(mbid);
 
   return (
     <>
@@ -34,6 +38,9 @@ function Album(props) {
         <div className={classes.albumImage}></div>
         <div>
           <h3 title={name}>{formatedName}</h3>
+          <HeartTwoTone
+            twoToneColor={isMarkedAsFavorite === 'true' ? '#FF0000' : '#999999'}
+          />
         </div>
         <Link to={albumUrl} state={{ album: props.album }}>
           More Info

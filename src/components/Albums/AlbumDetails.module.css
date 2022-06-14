@@ -1,0 +1,13 @@
+.albumDetailsWrapper {
+    padding: 10px 15px 15px 30px;
+}
+
+.no-space {
+    margin-bottom: 0;
+}
+
+h1,h2, h3, h3, h4, span, p, a {
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+}

@@ -1,0 +1,54 @@
+import React, { useState, useEffect } from 'react';
+import SearchBar from './../Common/SearchBar';
+import AlbumList from './AlbumList';
+import Sort from './../Common/Sort';
+import { fetch } from '../../apis/index';
+import classes from './Albums.module.css';
+// import 'dotenv/config';
+
+function Albums(props) {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [sortDirection, setSortDirection] = useState('asc');
+  const [albums, setAlbums] = useState([]);
+  const defaultAlbum = 'believe';
+  const fetchAlbumURL = `https://ws.audioscrobbler.com/2.0/?method=album.search&album=${
+    searchTerm?.toLowerCase() || defaultAlbum
+  }&api_key=034cd8882ca9b14875f8a7a907aafbbd&format=json`;
+
+  const onSearchHandler = (searchTerm) => {
+    setSearchTerm(searchTerm);
+  };
+
+  const onSortDirectionChangeHandler = (sortDirection) => {
+    setSearchTerm(sortDirection);
+  };
+
+  console.log(process.env.REACT_APP_API_KEY);
+
+  useEffect(() => {
+    const fetchAlbums = async () => {
+      setTimeout(async () => {
+        const response = await fetch(fetchAlbumURL);
+        const albumsResult = response.data.results.albummatches.album;
+        const sortedAlbums = albumsResult?.sort((a, b) => {
+          return a.name - b.name;
+        });
+        setAlbums(sortedAlbums);
+      }, 1000);
+    };
+
+    fetchAlbums();
+  }, [fetchAlbumURL, sortDirection]);
+
+  return (
+    <>
+      <SearchBar onSearch={onSearchHandler} />
+      <Sort onSortDirectionChange={onSortDirectionChangeHandler} />
+      <AlbumList albums={albums} />
+    </>
+  );
+}
+
+Albums.propTypes = {};
+
+export default Albums;

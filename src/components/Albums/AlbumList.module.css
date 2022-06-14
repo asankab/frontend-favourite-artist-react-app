@@ -1,0 +1,13 @@
+.ContentWrapper {
+    padding: 30px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.CenterContent {
+    text-align: center;
+}
+
+.GreyText {
+    color: #9f9f9f;
+}

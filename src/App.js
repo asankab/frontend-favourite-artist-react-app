@@ -5,7 +5,7 @@ import AlbumDetails from './components/Albums/AlbumDetails';
 import Header from './components/UI/Layout/Header';
 import Navbar from './components/UI/Layout/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NotFound from './components/NotFound';
+import NotFound from './components/UI/NotFound';
 
 function App() {
   return (

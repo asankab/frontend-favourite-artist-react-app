@@ -5,6 +5,7 @@ import AlbumDetails from './components/Albums/AlbumDetails';
 import Header from './components/UI/Layout/Header';
 import Navbar from './components/UI/Layout/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Albums />} />
               <Route path="/albums/:id" element={<AlbumDetails />} />
+              <Route component={NotFound} />
             </Routes>
           </div>
         </>

@@ -3,7 +3,6 @@ import SearchBar from './../Common/SearchBar';
 import AlbumList from './AlbumList';
 import Sort from './../Common/Sort';
 import { fetch } from '../../apis/index';
-// import 'dotenv/config';
 import Spinner from './../UI/Layout/Spinner';
 
 function Albums(props) {
@@ -12,9 +11,10 @@ function Albums(props) {
   const [loading, setLoading] = useState(false);
   const [albums, setAlbums] = useState([]);
   const defaultAlbum = 'believe';
+
   const fetchAlbumURL = `https://ws.audioscrobbler.com/2.0/?method=album.search&album=${
     searchTerm?.toLowerCase() || defaultAlbum
-  }&api_key=034cd8882ca9b14875f8a7a907aafbbd&format=json`;
+  }&format=json`;
 
   const onSearchHandler = (searchTerm) => {
     setSearchTerm(searchTerm);
@@ -23,8 +23,6 @@ function Albums(props) {
   const onSortDirectionChangeHandler = (sortDirection) => {
     setSearchTerm(sortDirection);
   };
-
-  console.log(process.env.REACT_APP_API_KEY);
 
   useEffect(() => {
     const fetchAlbums = async () => {

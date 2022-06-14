@@ -15,7 +15,7 @@ function AlbumDetails(props) {
   const [markedAsFavorite, setMarkedAsFavorite] = useState(false);
   const { mbid, name, artist, image, url } = album;
   const imageUrl = image.length > 0 && image[image.length - 1]['#text'];
-  const fetchTracksByArtistURL = `https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=034cd8882ca9b14875f8a7a907aafbbd&format=json`;
+  const fetchTracksByArtistURL = `https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&format=json`;
   const [tracks, setTracks] = useState([]);
   const isMarkedAsFavorite = getValueByKey(mbid);
 

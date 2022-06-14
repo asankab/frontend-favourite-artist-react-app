@@ -6,7 +6,7 @@ import classes from './Navbar.module.css';
 function Navbar(props) {
   return (
     <div className={classes.navbar}>
-      <Link to="/">View Albums</Link>
+      <Link to="/">View Albums</Link> &nbsp;
     </div>
   );
 }

@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Col, Row } from 'antd';
 import classes from './AlbumDetails.module.css';
-import { fetch } from './../../apis/index';
-import Spinner from './../UI/Layout/Spinner';
+import { fetch } from './../../../apis/index';
+import Spinner from './../../UI/Spinner/Spinner';
 import TrackList from './../Tracks/TracksList';
 import { HeartTwoTone } from '@ant-design/icons';
-import { setValue, getValueByKey } from './../../utils/localStorageUtil';
-import messages from './../../assests/localized-content/en-US.json';
+import { setValue, getValueByKey } from './../../../utils/localStorageUtil';
+import messages from './../../../assests/localized-content/en-US.json';
 
 function AlbumDetails(props) {
   const location = useLocation();

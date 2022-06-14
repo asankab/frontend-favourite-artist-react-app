@@ -6,7 +6,7 @@ import {
   SortAscendingOutlined,
   SortDescendingOutlined,
 } from '@ant-design/icons';
-import messages from '../../assests/localized-content/en-US.json';
+import messages from '../../../assests/localized-content/en-US.json';
 
 function Sort(props) {
   const [sortDirection, setSortDirection] = useState('asc');

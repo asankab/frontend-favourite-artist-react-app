@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from './../Common/SearchBar';
 import AlbumList from './AlbumList';
 import Sort from './../Common/Sort';
-import { fetch } from '../../apis/index';
-import Spinner from './../UI/Layout/Spinner';
+import { fetch } from '../../../apis/index';
+import Spinner from '../../UI/Spinner/Spinner';
 
 function Albums(props) {
   const [searchTerm, setSearchTerm] = useState('');

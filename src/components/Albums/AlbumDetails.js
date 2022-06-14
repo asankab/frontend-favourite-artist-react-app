@@ -4,7 +4,6 @@ import { Col, Row } from 'antd';
 import classes from './AlbumDetails.module.css';
 import { fetch } from './../../apis/index';
 import Spinner from './../UI/Layout/Spinner';
-
 import TrackList from './../Tracks/TracksList';
 import { HeartTwoTone } from '@ant-design/icons';
 import { setValue, getValueByKey } from './../../utils/localStorageUtil';
@@ -48,7 +47,7 @@ function AlbumDetails(props) {
     <>
       {loading && <Spinner />}
       <Row>
-        <Col md={12}>
+        <Col md={16}>
           <div className={classes.albumDetailsWrapper}>
             <div>
               <a href={url}>
@@ -73,7 +72,7 @@ function AlbumDetails(props) {
             </div>
           </div>
         </Col>
-        <Col md={12}>
+        <Col md={8}>
           <TrackList tracks={tracks} />
         </Col>
       </Row>

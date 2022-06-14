@@ -5,10 +5,12 @@ import Sort from './../Common/Sort';
 import { fetch } from '../../apis/index';
 import classes from './Albums.module.css';
 // import 'dotenv/config';
+import Spinner from './../UI/Layout/Spinner';
 
 function Albums(props) {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortDirection, setSortDirection] = useState('asc');
+  const [loading, setLoading] = useState(false);
   const [albums, setAlbums] = useState([]);
   const defaultAlbum = 'believe';
   const fetchAlbumURL = `https://ws.audioscrobbler.com/2.0/?method=album.search&album=${
@@ -28,12 +30,14 @@ function Albums(props) {
   useEffect(() => {
     const fetchAlbums = async () => {
       setTimeout(async () => {
+        setLoading(true);
         const response = await fetch(fetchAlbumURL);
         const albumsResult = response.data.results.albummatches.album;
         const sortedAlbums = albumsResult?.sort((a, b) => {
           return a.name - b.name;
         });
         setAlbums(sortedAlbums);
+        setLoading(false);
       }, 1000);
     };
 
@@ -42,6 +46,7 @@ function Albums(props) {
 
   return (
     <>
+      {loading && <Spinner />}
       <SearchBar onSearch={onSearchHandler} />
       <Sort onSortDirectionChange={onSortDirectionChangeHandler} />
       <AlbumList albums={albums} />

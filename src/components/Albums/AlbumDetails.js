@@ -7,6 +7,7 @@ import Spinner from './../UI/Layout/Spinner';
 import TrackList from './../Tracks/TracksList';
 import { HeartTwoTone } from '@ant-design/icons';
 import { setValue, getValueByKey } from './../../utils/localStorageUtil';
+import messages from './../../assests/localized-content/en-US.json';
 
 function AlbumDetails(props) {
   const location = useLocation();
@@ -43,6 +44,9 @@ function AlbumDetails(props) {
     setMarkedAsFavorite(isFavourite);
   };
 
+  const favouriteIconColor =
+    isMarkedAsFavorite === 'true' ? '#FF0000' : '#999999';
+
   return (
     <>
       {loading && <Spinner />}
@@ -60,13 +64,9 @@ function AlbumDetails(props) {
               </a>
               <h3 className={classes['no-space']}>{name} &nbsp;</h3>
               <HeartTwoTone
-                title="click to toggle mark/unmark as favourite album"
+                title={messages.ClickToToggleFavouriteLabel}
                 onClick={favoriteToggleHandler}
-                twoToneColor={
-                  isMarkedAsFavorite === 'true' || markedAsFavorite == 'true'
-                    ? '#FF0000'
-                    : '#999999'
-                }
+                twoToneColor={favouriteIconColor}
               />
               <h5>{artist}</h5>
             </div>

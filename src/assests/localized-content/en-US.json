@@ -3,5 +3,6 @@
     "InputSearchTextHere": "input search text here",
     "SortTextLabel": "Sort",
     "NoTracksFound": "No tracks found to display",
-    "MoreInfoLabel": "More Info"
+    "MoreInfoLabel": "More Info",
+    "ClickToToggleFavouriteLabel": "Click to toggle mark/unmark as favourite album"
 }

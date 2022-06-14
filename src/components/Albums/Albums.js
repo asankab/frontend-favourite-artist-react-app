@@ -3,13 +3,12 @@ import SearchBar from './../Common/SearchBar';
 import AlbumList from './AlbumList';
 import Sort from './../Common/Sort';
 import { fetch } from '../../apis/index';
-import classes from './Albums.module.css';
 // import 'dotenv/config';
 import Spinner from './../UI/Layout/Spinner';
 
 function Albums(props) {
   const [searchTerm, setSearchTerm] = useState('');
-  const [sortDirection, setSortDirection] = useState('asc');
+  const [sortDirection] = useState('asc');
   const [loading, setLoading] = useState(false);
   const [albums, setAlbums] = useState([]);
   const defaultAlbum = 'believe';

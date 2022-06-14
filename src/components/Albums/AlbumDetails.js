@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Col, Row } from 'antd';
 import classes from './AlbumDetails.module.css';
 import { fetch } from './../../apis/index';
@@ -8,11 +8,10 @@ import Spinner from './../UI/Layout/Spinner';
 import TrackList from './../Tracks/TracksList';
 
 function AlbumDetails(props) {
-  const { id } = useParams();
   const location = useLocation();
   const { album } = location.state;
   const [loading, setLoading] = useState(false);
-  const { mbid, name, artist, image, url } = album;
+  const { name, artist, image, url } = album;
   const imageUrl = image.length > 0 && image[image.length - 1]['#text'];
   const fetchTracksByArtistURL = `https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=034cd8882ca9b14875f8a7a907aafbbd&format=json`;
   const [tracks, setTracks] = useState([]);

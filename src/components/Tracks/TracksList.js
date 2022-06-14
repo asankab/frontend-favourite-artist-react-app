@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { List } from 'antd';
 import { PlayCircleOutlined } from '@ant-design/icons';
+import classes from './TrackList.module.css';
 
 function TracksList(props) {
   const tracksData = props.tracks?.map((track) => {
@@ -14,7 +15,7 @@ function TracksList(props) {
   });
 
   return (
-    <>
+    <div className={classes.container}>
       <h2>Tracks ({tracksData.length})</h2>
       {tracksData.length > 0 ? (
         <List
@@ -36,7 +37,7 @@ function TracksList(props) {
       ) : (
         'No tracks found'
       )}
-    </>
+    </div>
   );
 }
 

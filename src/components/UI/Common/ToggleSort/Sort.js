@@ -6,7 +6,7 @@ import {
   SortAscendingOutlined,
   SortDescendingOutlined,
 } from '@ant-design/icons';
-import messages from '../../../assests/localized-content/en-US.json';
+import messages from '../../../../assests/localized-content/en-US.json';
 
 function Sort(props) {
   const [sortDirection, setSortDirection] = useState('asc');
@@ -18,7 +18,7 @@ function Sort(props) {
       setSortDirection('asc');
     }
 
-    props.onSortDirectionChange(sortDirection);
+    props.onSortToggled(sortDirection);
   };
 
   return (
@@ -38,7 +38,7 @@ function Sort(props) {
 }
 
 Sort.propTypes = {
-  onSortDirectionChange: PropTypes.func.isRequired,
+  onSortToggled: PropTypes.func.isRequired,
 };
 
 export default Sort;

@@ -1,10 +1,9 @@
-.albumDetailsWrapper {
-    padding: 10px 15px 15px 30px;
-    width: 90%;
-    margin: 0 auto;
+.albumWrapper {
+    padding: 15px 30px;
+    width: 70%;
 }
 
-.no-space {
+.zero-bottom-margin {
     margin-bottom: 0;
 }
 

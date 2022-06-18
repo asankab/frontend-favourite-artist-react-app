@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classes from './SearchBar.module.css';
 import { Input } from 'antd';
 const { Search } = Input;
-import messages from '../../../assests/localized-content/en-US.json';
+import messages from '../../../../assests/localized-content/en-US.json';
 
 function SearchBar(props) {
   const [, setSearchTerm] = useState('');

@@ -1,4 +1,18 @@
-.navbar {
+.header  {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #95bcf0;
+}
+
+.header a {
     padding: 5px 25px;
-    border: 1px solid #cccccc;
+    color: #95bcf0;
+    text-decoration: none;
+}
+
+.header a:hover, 
+.header a:active {
+    color: #95bcf0;
+    padding-bottom: 0.25rem;
+    border-bottom: 4px solid #95bcf0;
 }

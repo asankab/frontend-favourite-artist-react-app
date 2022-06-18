@@ -7,9 +7,11 @@ import Navbar from './components/UI/Layout/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NotFound from './components/UI/NotFound';
 
+import AlbumProvider from './store/album-provider';
+
 function App() {
   return (
-    <>
+    <AlbumProvider>
       <Router>
         <>
           <Header />
@@ -23,7 +25,7 @@ function App() {
           </div>
         </>
       </Router>
-    </>
+    </AlbumProvider>
   );
 }
 

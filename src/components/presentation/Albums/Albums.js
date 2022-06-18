@@ -26,7 +26,7 @@ function Albums(props) {
 
   useEffect(() => {
     const fetchAlbums = async () => {
-      setTimeout(async () => {
+      const identifier = setTimeout(async () => {
         setLoading(true);
         const response = await fetch(fetchAlbumURL);
         const albumsResult = response.data.results.albummatches.album;
@@ -36,6 +36,10 @@ function Albums(props) {
         setAlbums(sortedAlbums);
         setLoading(false);
       }, 1000);
+
+      return () => {
+        clearTimeout(identifier);
+      };
     };
 
     fetchAlbums();

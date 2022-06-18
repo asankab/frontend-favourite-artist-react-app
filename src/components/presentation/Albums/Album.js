@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'antd';
 import classes from '../Albums/Album.module.css';
 import { Link } from 'react-router-dom';
 import defaultImage from './../../../assests/images/noimage.jpg';
 import { setValue, getValueByKey } from './../../../utils/localStorageUtil';
-import { HeartTwoTone } from '@ant-design/icons';
+import { ControlOutlined, HeartTwoTone } from '@ant-design/icons';
 import messages from '../../../assests/localized-content/en-US.json';
+import AlbumContext from '../../../store/albums-context';
 
 function Album(props) {
+  const albumCtx = useContext(AlbumContext);
+
+  console.log(albumCtx.albums);
   const [markedAsFavorite, setMarkedAsFavorite] = useState(false);
   const { mbid, name, image } = props.album;
   const albumUrl = `/albums/${mbid}`;
@@ -56,6 +60,7 @@ function Album(props) {
         <div>
           <h3 title={name}>{formatedName}</h3>
           <HeartTwoTone
+            style={{ fontSize: '150%' }}
             title={messages.ClickToToggleFavouriteLabel}
             onClick={favoriteToggleHandler}
             twoToneColor={favouriteIconColor}

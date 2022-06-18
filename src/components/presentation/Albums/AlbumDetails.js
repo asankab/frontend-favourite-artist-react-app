@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Col, Row } from 'antd';
 import classes from './AlbumDetails.module.css';
@@ -9,7 +9,13 @@ import { HeartTwoTone } from '@ant-design/icons';
 import { setValue, getValueByKey } from './../../../utils/localStorageUtil';
 import messages from './../../../assests/localized-content/en-US.json';
 
+import AlbumContext from '../../../store/albums-context';
+
 function AlbumDetails(props) {
+  const albumCtx = useContext(AlbumContext);
+
+  console.log(albumCtx._currentValue.albums);
+
   const location = useLocation();
   const { album } = location.state;
   const [loading, setLoading] = useState(false);
@@ -64,6 +70,7 @@ function AlbumDetails(props) {
               </a>
               <h3 className={classes['no-space']}>{name} &nbsp;</h3>
               <HeartTwoTone
+                style={{ fontSize: '150%' }}
                 title={messages.ClickToToggleFavouriteLabel}
                 onClick={favoriteToggleHandler}
                 twoToneColor={favouriteIconColor}

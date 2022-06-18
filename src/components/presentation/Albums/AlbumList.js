@@ -10,10 +10,10 @@ function AlbumList(props) {
   let albumComponents = [];
 
   if (albums?.length > 0) {
-    albumComponents = albums.map((album) => {
+    albumComponents = albums.map((album, index) => {
       return (
         <Col>
-          <Album key={album.mbid} album={album} />
+          <Album key={index} album={album} />
         </Col>
       );
     });

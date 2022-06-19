@@ -16,6 +16,6 @@ module.exports = {
     semi: ['error', 'always'],
     quotes: ['error', 'single'],
     'react/no-multi-comp': 1,
-    // 'react/prop-types': 1,
+    'react/prop-types': 1,
   },
 };

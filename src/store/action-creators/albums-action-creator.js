@@ -1,4 +1,4 @@
-import { fetch } from './../../apis/index';
+import { fetch } from '../../apis/index';
 
 export const fetchAlbums = (albumName) => {
   return async (dispatch) => {
@@ -24,7 +24,6 @@ export const fetchAlbums = (albumName) => {
 };
 
 export const markAsFavouriteAlbums = (id) => {
-  console.log('markAsFavourite');
   return async (dispatch) => {
     try {
       dispatch({

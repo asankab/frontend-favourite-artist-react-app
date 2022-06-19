@@ -5,7 +5,7 @@ import SearchBar from '../../../UI/Common/SimpleSearch/SearchBar';
 import AlbumList from '../../../presentation/Pages/Albums/AlbumList';
 import Sort from '../../../UI/Common/ToggleSort/Sort';
 import Spinner from '../../../UI/Common/Spinner/Spinner';
-import { fetchAlbums } from '../../../../store/action-creators/index';
+import { fetchAlbums } from '../../../../store/action-creators/albums-action-creator';
 import messages from '../../../../assests/localized-content/en-US.json';
 import classes from './Albums.module.css';
 
@@ -17,15 +17,8 @@ function Albums(props) {
     setSearchTerm(searchTerm || defaultAlbumName);
   };
 
-  const sortToggleHandler = (sortDirection) => {
-    const sortedAlbums = [...albumsList].sort((a, b) =>
-      a.name > b.name ? 1 : -1
-    );
-    setSearchTerm(sortDirection);
-  };
-
   const dispatch = useDispatch();
-  const albumsList = useSelector((state) => {
+  const albums = useSelector((state) => {
     return state.albums;
   });
 
@@ -41,6 +34,11 @@ function Albums(props) {
     dispatch(fetchAlbums(searchTerm));
   }, [searchTerm]);
 
+  const sortToggleHandler = (sortDirection) => {
+    const sortedAlbums = [...albums].sort((a, b) => (a.name > b.name ? 1 : -1));
+    setSearchTerm(sortDirection);
+  };
+
   const errorContent = (
     <div className={classes.centerContent}>
       <span className={classes.greyText}>{messages['FetchError']}</span>
@@ -52,7 +50,7 @@ function Albums(props) {
       {isLoading && <Spinner />}
       <SearchBar onSearch={searchHandler} />
       <Sort onSortToggled={sortToggleHandler} />
-      {error.length > 0 ? errorContent : <AlbumList albums={albumsList} />}
+      {error?.length > 0 ? errorContent : <AlbumList albums={albums} />}
     </div>
   );
 }

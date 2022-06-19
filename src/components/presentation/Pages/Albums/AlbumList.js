@@ -13,7 +13,7 @@ function AlbumList(props) {
     albumComponents = albums.map((album, index) => {
       return (
         <Col key={index}>
-          <Album album={album} />
+          <Album id={index} album={album} />
         </Col>
       );
     });

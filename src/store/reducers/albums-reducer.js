@@ -2,7 +2,6 @@ const dafaultState = {
   albums: [],
   isLoading: false,
   favouriteAlbums: [],
-  counter: 0,
   error: {},
 };
 

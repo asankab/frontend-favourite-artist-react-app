@@ -1,6 +1,7 @@
 import { fetch } from '../../apis/index';
 
 export const fetchTracks = (artist) => {
+  console.log('Fetching tracks' );
   return async (dispatch) => {
     try {
       dispatch({ type: 'FETCH_TRACKS_STARTED' });

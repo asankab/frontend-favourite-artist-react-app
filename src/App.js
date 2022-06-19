@@ -17,14 +17,12 @@ function App() {
       <Router>
         <Header />
         <Navbar />
-        <div className="Content">
-          <Routes>
-            <Route exact path="/" element={<Navigate to="albums" />} />
-            <Route exact path="/albums" element={<Albums />} />
-            <Route path="/albums/:id" element={<AlbumDetails />} />
-            <Route path="*" component={NotFound} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route exact path="/" element={<Navigate to="albums" />} />
+          <Route exact path="/albums" element={<Albums />} />
+          <Route path="/albums/:id" element={<AlbumDetails />} />
+          <Route path="*" component={NotFound} />
+        </Routes>
       </Router>
     </Provider>
   );

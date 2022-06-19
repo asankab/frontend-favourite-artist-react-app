@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
+
 import { Card } from 'antd';
 import classes from './Album.module.css';
 import { Link } from 'react-router-dom';
@@ -11,7 +13,7 @@ import messages from '../../../../assests/localized-content/en-US.json';
 function Album(props) {
   const [markedAsFavorite, setMarkedAsFavorite] = useState(false);
   const { mbid, name, image } = props.album;
-  const albumUrl = `/albums/${mbid}`;
+  const albumUrl = `/albums/${mbid || uuidv4()}`;
   const maxTitleTextLengthToDisplay = 20;
   const imageUrl = image.length > 0 && image[image.length - 1]['#text'];
   const formatedName = `${name.substring(

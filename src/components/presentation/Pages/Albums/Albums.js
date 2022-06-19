@@ -6,6 +6,7 @@ import AlbumList from './AlbumList';
 import Sort from '../../../UI/Common/ToggleSort/Sort';
 import Spinner from '../../../UI/Common/Spinner/Spinner';
 import { fetchAlbums } from './../../../../store/action-creators/index';
+import classes from './Albums.module.css';
 
 function Albums(props) {
   const defaultAlbumName = 'ASCENDANC';
@@ -35,15 +36,13 @@ function Albums(props) {
     dispatch(fetchAlbums(searchTerm));
   }, [searchTerm]);
 
-  // console.log(albumsList);
-
   return (
-    <>
+    <div className={classes.contentWrapper}>
       {isLoading && <Spinner />}
       <SearchBar onSearch={searchHandler} />
       <Sort onSortToggled={sortToggleHandler} />
       <AlbumList albums={albumsList} />
-    </>
+    </div>
   );
 }
 

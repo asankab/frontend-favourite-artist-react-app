@@ -1,11 +1,11 @@
 .albumWrapper {
-    padding: 10px;
-    max-width: 80vw;
-    max-height: 80vh;
-    margin: 20px;
+    margin: 5px;
+    width: 380px;
+    height: 520px;
 }
 
 .imageContainer {
-    max-width: 40vw;
-    max-height: 40vh;
+    background-size: cover;
+    overflow: hidden;
+    height: 400px;
 }

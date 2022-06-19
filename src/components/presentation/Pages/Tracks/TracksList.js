@@ -15,7 +15,7 @@ function TracksList(props) {
   });
 
   return (
-    <div className={classes.container}>
+    <div className={classes['tracks-container']}>
       <h2>Tracks ({tracksData.length})</h2>
       {tracksData.length > 0 ? (
         <List

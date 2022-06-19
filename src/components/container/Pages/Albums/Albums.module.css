@@ -1,3 +1,12 @@
 .contentWrapper {
     margin-top: 30px;
 }
+
+.centerContent {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.greyText {
+    color: #9f9f9f;
+}

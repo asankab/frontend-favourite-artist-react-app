@@ -6,6 +6,7 @@ import AlbumList from '../../../presentation/Pages/Albums/AlbumList';
 import Sort from '../../../UI/Common/ToggleSort/Sort';
 import Spinner from '../../../UI/Common/Spinner/Spinner';
 import { fetchAlbums } from '../../../../store/action-creators/index';
+import messages from '../../../../assests/localized-content/en-US.json';
 import classes from './Albums.module.css';
 
 function Albums(props) {
@@ -32,16 +33,26 @@ function Albums(props) {
     return state.isLoading;
   });
 
+  const error = useSelector((state) => {
+    return state.error;
+  });
+
   useEffect(() => {
     dispatch(fetchAlbums(searchTerm));
   }, [searchTerm]);
+
+  const errorContent = (
+    <div className={classes.centerContent}>
+      <span className={classes.greyText}>{messages['FetchError']}</span>
+    </div>
+  );
 
   return (
     <div className={classes.contentWrapper}>
       {isLoading && <Spinner />}
       <SearchBar onSearch={searchHandler} />
       <Sort onSortToggled={sortToggleHandler} />
-      <AlbumList albums={albumsList} />
+      {error.length > 0 ? errorContent : <AlbumList albums={albumsList} />}
     </div>
   );
 }

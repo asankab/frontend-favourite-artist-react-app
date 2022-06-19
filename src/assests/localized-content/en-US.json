@@ -1,5 +1,7 @@
 {
     "NoDataFound":"No Albums found to display !",
+    "FetchError":"Error while fetching albums",
+    "MarkOrUnmarkFavouriteError":"Error while fetching albums",
     "InputSearchTextHere": "Input album name to search...",
     "SortTextLabel": "Sort",
     "NoTracksFound": "No tracks found to display",

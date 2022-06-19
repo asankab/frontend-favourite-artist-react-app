@@ -12,14 +12,15 @@ import messages from './../../../../assests/localized-content/en-US.json';
 
 function AlbumDetails(props) {
   const location = useLocation();
-  const { album } = location.state;
+  const { album, id } = location.state;
+  const albumIdentifier = album.mbid;
   const [loading, setLoading] = useState(false);
   const [markedAsFavorite, setMarkedAsFavorite] = useState(false);
-  const { mbid, name, artist, image, url } = album;
+  const { name, artist, image, url } = album;
   const imageUrl = image.length > 0 && image[image.length - 1]['#text'];
   const fetchTracksByArtistURL = `https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&format=json`;
   const [tracks, setTracks] = useState([]);
-  const isMarkedAsFavorite = getValueByKey(mbid);
+  const isMarkedAsFavorite = getValueByKey(id);
 
   useEffect(() => {
     const fetchTracks = async () => {
@@ -33,7 +34,7 @@ function AlbumDetails(props) {
   }, []);
 
   const favoriteToggleHandler = (event) => {
-    let isFavourite = getValueByKey(mbid);
+    let isFavourite = getValueByKey(id);
 
     if (isFavourite === 'true') {
       isFavourite = false;

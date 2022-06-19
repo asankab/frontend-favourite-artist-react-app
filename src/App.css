@@ -26,10 +26,6 @@
   }
 }
 
-.Content {
- padding-top: 15px;
-}
-
 h1,h2, h3, h3, h4, span, p, a {
   text-transform: uppercase;
   padding: 0;

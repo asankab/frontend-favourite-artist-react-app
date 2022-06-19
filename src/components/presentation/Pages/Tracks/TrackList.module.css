@@ -1,3 +1,5 @@
-.container {
+.tracks-container {
     padding-left: 45px;
+    height: 80vh;  
+    overflow: scroll;
 }

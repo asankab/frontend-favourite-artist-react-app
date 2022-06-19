@@ -20,12 +20,12 @@ function AlbumList(props) {
   }
 
   return (
-    <div className={classes.ContentWrapper}>
+    <div className={classes.contentWrapper}>
       {albums?.length > 0 ? (
         <Row gutter={[16, 16]}>{albumComponents}</Row>
       ) : (
-        <div className={classes.CenterContent}>
-          <span className={classes.GreyText}>{messages.NoDataFound}</span>
+        <div className={classes.centerContent}>
+          <span className={classes.greyText}>{messages.NoDataFound}</span>
         </div>
       )}
     </div>

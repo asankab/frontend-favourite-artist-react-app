@@ -1,13 +1,13 @@
-.ContentWrapper {
-    padding: 30px;
-    width: 90%;
+.contentWrapper {   
+    width: 80%;
     margin: 0 auto;
+    padding-top: 30px;
 }
 
-.CenterContent {
+.centerContent {
     text-align: center;
 }
 
-.GreyText {
+.greyText {
     color: #9f9f9f;
 }

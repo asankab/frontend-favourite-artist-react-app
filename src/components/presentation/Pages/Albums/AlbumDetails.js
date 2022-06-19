@@ -84,7 +84,6 @@ function AlbumDetails(props) {
 
   return (
     <>
-      {albumError.length > 0 && albumErrorContent}
       {trackError.length > 0 && trackErrorContent}
       {isLoading && <Spinner />}
       <Row>

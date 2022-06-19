@@ -34,8 +34,8 @@ module.exports = {
   resolve: {
     fallback: {
       fs: false,
-      os: false, //require.resolve('os-browserify/browser'),
-      path: false, //require.resolve('path-browserify'),
+      os: require.resolve('os-browserify/browser'),
+      path: require.resolve('path-browserify'),
     },
   },
 };

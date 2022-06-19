@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { Card } from 'antd';
 import classes from './Album.module.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import defaultImage from './../../../../assests/images/noimage.jpg';
 import { setValue, getValueByKey } from '../../../../utils/localStorageUtil';
 import { HeartTwoTone } from '@ant-design/icons';
@@ -53,8 +53,8 @@ function Album(props) {
         />
       }
     >
-      <div>
-        <h3 title={name}>{formatedName}</h3>
+      <div className={classes.titleSection}>
+        <h2 title={name}>{formatedName}</h2>
         <HeartTwoTone
           style={{ fontSize: '150%' }}
           title={messages.ClickToToggleFavouriteLabel}
@@ -62,9 +62,9 @@ function Album(props) {
           twoToneColor={favouriteIconColor}
         />
       </div>
-      <Link to={albumUrl} state={{ album: props.album }}>
+      <NavLink to={albumUrl} state={{ album: props.album }}>
         {messages.MoreInfoLabel}
-      </Link>
+      </NavLink>
     </Card>
   );
 }

@@ -1,11 +1,15 @@
 .albumWrapper {
     margin: 5px;
     width: 380px;
-    height: 520px;
+    height: 540px;
 }
 
 .imageContainer {
     background-size: cover;
     overflow: hidden;
     height: 400px;
+}
+
+.titleSection {
+    margin-bottom: 15px;
 }

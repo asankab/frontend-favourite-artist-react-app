@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import SearchBar from '../../../UI/Common/SimpleSearch/SearchBar';
-import AlbumList from './AlbumList';
+import AlbumList from '../../../presentation/Pages/Albums/AlbumList';
 import Sort from '../../../UI/Common/ToggleSort/Sort';
 import Spinner from '../../../UI/Common/Spinner/Spinner';
-import { fetchAlbums } from './../../../../store/action-creators/index';
+import { fetchAlbums } from '../../../../store/action-creators/index';
 import classes from './Albums.module.css';
 
 function Albums(props) {

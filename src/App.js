@@ -6,7 +6,7 @@ import { Navigate } from 'react-router-dom';
 
 import Header from './components/UI/Layout/Header';
 import Navbar from './components/UI/Layout/Navbar';
-import Albums from './components/presentation/Pages/Albums/Albums';
+import Albums from './components/container/Pages/Albums/Albums';
 import AlbumDetails from './components/presentation/Pages/Albums/AlbumDetails';
 import NotFound from './components/UI/Common/NotFound';
 import './App.css';

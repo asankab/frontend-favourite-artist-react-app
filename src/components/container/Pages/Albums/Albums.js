@@ -36,6 +36,7 @@ function Albums(props) {
 
   const sortToggleHandler = (sortDirection) => {
     const sortedAlbums = [...albums].sort((a, b) => (a.name > b.name ? 1 : -1));
+    console.log(sortedAlbums);
     setSearchTerm(sortDirection);
   };
 

@@ -2,8 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-// import { ToastContainer, toast } from 'react-toastify';
-//import './../../../../../node_modules/react-toastify/dist/ReactToastify.css';
 
 import { Card } from 'antd';
 import classes from './Album.module.css';
@@ -98,7 +96,6 @@ function Album(props) {
           {messages.MoreInfoLabel}
         </NavLink>
       </Card>
-      {/* <ToastContainer closeButton={false} position="bottom-right" /> */}
     </>
   );
 }

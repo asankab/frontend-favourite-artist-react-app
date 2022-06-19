@@ -27,16 +27,13 @@ function Album(props) {
       : name.length - 1
   )} ${name.length > maxTitleTextLengthToDisplay ? '...' : ' '}`;
 
-  console.log(url);
-  console.log(hashCode(url));
-
   const dispatch = useDispatch();
   const favouriteAlbums = useSelector((state) => {
-    return state.favouriteAlbums;
+    return state.albums.favouriteAlbums;
   });
 
   const error = useSelector((state) => {
-    return state.error;
+    return state.albums.error;
   });
 
   const isMarkedAsFavorite = favouriteAlbums.includes(albumIdentifier);

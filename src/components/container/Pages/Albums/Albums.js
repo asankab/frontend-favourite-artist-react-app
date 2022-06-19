@@ -19,15 +19,15 @@ function Albums(props) {
 
   const dispatch = useDispatch();
   const albums = useSelector((state) => {
-    return state.albums;
+    return state.albums.albums;
   });
 
   const isLoading = useSelector((state) => {
-    return state.isLoading;
+    return state.albums.isLoading;
   });
 
   const error = useSelector((state) => {
-    return state.error;
+    return state.albums.error;
   });
 
   useEffect(() => {

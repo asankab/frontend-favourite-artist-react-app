@@ -15,36 +15,36 @@ import {
 import messages from './../../../../assests/localized-content/en-US.json';
 
 function AlbumDetails(props) {
-  const [loading, setLoading] = useState(false);
-  const [tracks, setTracks] = useState([]);
-
   const location = useLocation();
   const { album, id } = location.state;
   const { name, artist, image, url } = album;
 
   const albumIdentifier = id;
-  // const fetchTracksByArtistURL = `https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&format=json`;
   const imageUrl = image.length > 0 && image[image.length - 1]['#text'];
 
   useEffect(() => {
-    // const fetchTracks = async () => {
-    //   setLoading(true);
-    //   const response = await fetch(fetchTracksByArtistURL);
-    //   setTracks(response.data.toptracks.track);
-    //   setLoading(false);
-    // };
-    // fetchTracks();
-
     dispatch(fetchTracks(artist));
   }, [artist]);
 
   const dispatch = useDispatch();
   const favouriteAlbums = useSelector((state) => {
-    return state.favouriteAlbums;
+    return state.albums.favouriteAlbums;
   });
 
-  const error = useSelector((state) => {
-    return state.error;
+  const albumError = useSelector((state) => {
+    return state.albums.error;
+  });
+
+  const tracks = useSelector((state) => {
+    return state.tracks.tracks;
+  });
+
+  const trackError = useSelector((state) => {
+    return state.tracks.error;
+  });
+
+  const isLoading = useSelector((state) => {
+    return state.tracks.isLoading;
   });
 
   const favoriteToggleHandler = (event) => {
@@ -58,7 +58,15 @@ function AlbumDetails(props) {
   const isMarkedAsFavorite = favouriteAlbums.includes(albumIdentifier);
   const favouriteIconColor = isMarkedAsFavorite ? '#FF0000' : '#999999';
 
-  const errorContent = (
+  const albumErrorContent = (
+    <div className={classes.centerContent}>
+      <span className={classes.greyText}>
+        {messages['MarkOrUnmarkFavouriteError']}
+      </span>
+    </div>
+  );
+
+  const trackErrorContent = (
     <div className={classes.centerContent}>
       <span className={classes.greyText}>
         {messages['MarkOrUnmarkFavouriteError']}
@@ -68,8 +76,9 @@ function AlbumDetails(props) {
 
   return (
     <>
-      {error.length > 0 && errorContent}
-      {loading && <Spinner />}
+      {albumError.length > 0 && albumErrorContent}
+      {trackError.length > 0 && trackErrorContent}
+      {isLoading && <Spinner />}
       <Row>
         <Col md={16}>
           <div className={classes.albumWrapper}>

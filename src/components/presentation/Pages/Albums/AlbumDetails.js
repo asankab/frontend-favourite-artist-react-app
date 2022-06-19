@@ -62,13 +62,15 @@ function AlbumDetails(props) {
                 className={classes.image500px}
               />
             </a>
-            <h2 className={classes['zero-bottom-margin']}>{name}</h2>
-            <HeartTwoTone
-              style={{ fontSize: '150%' }}
-              title={messages.ClickToToggleFavouriteLabel}
-              onClick={favoriteToggleHandler}
-              twoToneColor={favouriteIconColor}
-            />
+            <h2 className={classes['zero-bottom-margin']}>
+              {name} &nbsp;
+              <HeartTwoTone
+                style={{ fontSize: '100%' }}
+                title={messages.ClickToToggleFavouriteLabel}
+                onClick={favoriteToggleHandler}
+                twoToneColor={favouriteIconColor}
+              />
+            </h2>
             <h4>{artist}</h4>
           </div>
         </Col>

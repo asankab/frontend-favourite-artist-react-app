@@ -19,6 +19,7 @@ function TracksList(props) {
       <h2>Tracks ({tracksData.length})</h2>
       {tracksData.length > 0 ? (
         <List
+          className={classes['tracks-data']}
           itemLayout="horizontal"
           dataSource={tracksData}
           renderItem={(track) => (

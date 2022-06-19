@@ -54,13 +54,15 @@ function Album(props) {
       }
     >
       <div className={classes.titleSection}>
-        <h2 title={name}>{formatedName}</h2>
-        <HeartTwoTone
-          style={{ fontSize: '150%' }}
-          title={messages.ClickToToggleFavouriteLabel}
-          onClick={favoriteToggleHandler}
-          twoToneColor={favouriteIconColor}
-        />
+        <h2 title={name}>
+          {formatedName}&nbsp;
+          <HeartTwoTone
+            style={{ fontSize: '100%' }}
+            title={messages.ClickToToggleFavouriteLabel}
+            onClick={favoriteToggleHandler}
+            twoToneColor={favouriteIconColor}
+          />
+        </h2>
       </div>
       <NavLink to={albumUrl} state={{ album: props.album }}>
         {messages.MoreInfoLabel}

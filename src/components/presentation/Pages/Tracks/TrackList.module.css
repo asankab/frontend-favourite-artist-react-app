@@ -1,5 +1,8 @@
 .tracks-container {
-    padding: 30px;
-    height: 85vh;
+    padding-top: 30px;
+}
+
+.tracks-data {
+    height: 75vh;
     overflow: scroll;
 }

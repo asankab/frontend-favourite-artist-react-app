@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { List } from 'antd';
+import { List, Avatar } from 'antd';
 import { PlayCircleOutlined } from '@ant-design/icons';
 import classes from './TrackList.module.css';
 
@@ -11,6 +11,7 @@ function TracksList(props) {
       listeners: track.listeners,
       playcount: track.playcount,
       url: track.url,
+      image: track.image.length > 0 && track.image[0]['#text'],
     };
   });
 
@@ -27,6 +28,7 @@ function TracksList(props) {
               <List.Item.Meta
                 key={track.mbid}
                 avatar={<PlayCircleOutlined />}
+                // Uncomment this, if you want the icon to be a track image => avatar={<Avatar src={track.image} />}
                 title={<a href={track.url}>{track.name}</a>}
                 description={`Listeners: ${
                   track.listeners || 0

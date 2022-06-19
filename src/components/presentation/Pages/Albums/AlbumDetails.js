@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { HeartTwoTone } from '@ant-design/icons';
 import { Col, Row } from 'antd';
+// import { ToastContainer, toast } from 'react-toastify';
+// import './../../../../../node_modules/react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 import classes from './AlbumDetails.module.css';
 import Spinner from './../../../UI/Common/Spinner/Spinner';
@@ -53,6 +56,13 @@ function AlbumDetails(props) {
     } else {
       dispatch(markAsFavouriteAlbums(albumIdentifier));
     }
+
+    toast.success('Saved successfully!', {
+      position: 'top-right',
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+    });
   };
 
   const isMarkedAsFavorite = favouriteAlbums.includes(albumIdentifier);

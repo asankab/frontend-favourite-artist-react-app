@@ -29,6 +29,11 @@ function SearchBar(props) {
           placeholder={messages.InputSearchTextHere}
           size="large"
           onSearch={filterChangeHandler}
+          onKeyPress={(event) => {
+            if (event.key === 'Enter') {
+              filterChangeHandler;
+            }
+          }}
           autoFocus
           enterButton
         />

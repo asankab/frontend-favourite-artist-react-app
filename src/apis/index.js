@@ -11,3 +11,24 @@ export const fetch = async (url) => {
     throw err;
   }
 };
+
+export const post = async (url, payload) => {
+  try {
+    url = `${url}&api_key=${process.env.REACT_APP_API_KEY}`;
+    const data = JSON.stringify(payload);
+    const token = 'token';
+    const headers = {
+      //"token":token
+      Authorization: token,
+      Accept: '*/*',
+      //"Content-Type": "multipart/form-data"
+      'Content-Type': 'application/json',
+    };
+
+    const response = await axios.post(url, data, headers);
+    return response;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+};

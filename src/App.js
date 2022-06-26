@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './../src/store/index';
@@ -23,6 +23,14 @@ function App() {
   const domain = process.env.REACT_APP_AUTH0_DOMAIN;
   const clientdID = process.env.REACT_APP_AUTH0_CLIENT_ID;
   // const { isAuthenticated } = useAuth0();
+
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {}, 1000);
+
+  //   return () => {
+  //     clearTimeout(timeout);
+  //   };
+  // });
 
   // Code spliting
   const AlbumDetails = React.lazy(() =>

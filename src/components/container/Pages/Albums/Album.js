@@ -11,8 +11,8 @@ import { HeartTwoTone } from '@ant-design/icons';
 import {
   markAsFavouriteAlbums,
   unmarkFromFavouriteAlbums,
-} from '../../../../store/action-creators/albums-action-creator';
-import { hashCode } from './../../../../utils/hashCode';
+} from '../../../../store/action-creators/albumsActionCreator';
+import { hashCode } from '../../../../utils/hashCode';
 import messages from '../../../../assests/localized-content/en-US.json';
 
 function Album(props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { getItem, setItem } from './../../../utils/localStorageUtil';
+import { setItem } from './../../../utils/localStorageUtil';
 import { Button } from 'antd';
 
 function LoginButton(props) {

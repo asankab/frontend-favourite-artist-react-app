@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'antd';
-import Album from './Album';
+import Album from '../../../container/Pages/Albums/Album';
 import classes from './AlbumList.module.css';
 import messages from './../../../../assests/localized-content/en-US.json';
 

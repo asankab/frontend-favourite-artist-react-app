@@ -1,0 +1,7 @@
+export enum SubscriptionTypesEnum {
+    UsageBased,
+    SubscriptionBased,
+    UsagePlusSubscriptionBased
+}
+
+console.log(SubscriptionTypesEnum[0])

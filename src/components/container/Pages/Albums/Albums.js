@@ -5,7 +5,7 @@ import SearchBar from '../../../UI/Common/SimpleSearch/SearchBar';
 import AlbumList from '../../../presentation/Pages/Albums/AlbumList';
 import Sort from '../../../UI/Common/ToggleSort/Sort';
 import Spinner from '../../../UI/Common/Spinner/Spinner';
-import { fetchAlbums } from '../../../../store/action-creators/albums-action-creator';
+import { fetchAlbums } from '../../../../store/action-creators/albumsActionCreator';
 import messages from '../../../../assests/localized-content/en-US.json';
 import classes from './Albums.module.css';
 

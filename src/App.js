@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './../src/store/index';
@@ -34,7 +34,7 @@ function App() {
 
   // Code spliting
   const AlbumDetails = React.lazy(() =>
-    import('./components/presentation/Pages/Albums/AlbumDetails')
+    import('./components/container/Pages/Albums/AlbumDetails')
   );
 
   const Home = React.lazy(() =>

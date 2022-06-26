@@ -7,12 +7,12 @@ import { toast } from 'react-toastify';
 
 import classes from './AlbumDetails.module.css';
 import Spinner from './../../../UI/Common/Spinner/Spinner';
-import TrackList from './../Tracks/TracksList';
-import { fetchTracks } from '../../../../store/action-creators/tracks-action-creator';
+import TrackList from './../../../presentation/Pages/Tracks/TracksList';
+import { fetchTracks } from '../../../../store/action-creators/tracksActionCreator';
 import {
   markAsFavouriteAlbums,
   unmarkFromFavouriteAlbums,
-} from '../../../../store/action-creators/albums-action-creator';
+} from '../../../../store/action-creators/albumsActionCreator';
 import messages from './../../../../assests/localized-content/en-US.json';
 
 function AlbumDetails(props) {

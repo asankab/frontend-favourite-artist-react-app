@@ -5,7 +5,7 @@ import Highlighter from 'react-highlight-words';
 
 import TableComponent from './../Table/Table';
 import TableTwo from './../TableTwo/TableTwo';
-import SubscriptionTypesEnum from '../../../../enums/SubscriptionTypesEnum';
+// import SubscriptionTypesEnum from '../../../../enums/SubscriptionTypesEnum';
 
 const data = [
   {
@@ -167,11 +167,11 @@ const Home = () => {
     },
   ];
 
-  console.log(SubscriptionTypesEnum[SubscriptionTypesEnum.UsageBased]);
+  // console.log(SubscriptionTypesEnum[SubscriptionTypesEnum.UsageBased]);
 
   return (
     <>
-      {SubscriptionTypesEnum.UsageBased}
+      {/* {SubscriptionTypesEnum.UsageBased} */}
       <Table columns={columns} dataSource={data} />;
       <TableComponent />
       <TableTwo />

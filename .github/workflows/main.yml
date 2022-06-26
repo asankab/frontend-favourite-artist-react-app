@@ -16,8 +16,8 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm test
-      - uses: actions/checkout@main
-      - uses: jakejarvis/s3-sync-action@main
+      - uses: actions/checkout@master
+      - uses: jakejarvis/s3-sync-action@master
         with:
           args: --acl public-read --follow-symlinks --delete
         env:

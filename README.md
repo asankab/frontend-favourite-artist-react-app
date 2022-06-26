@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Cloud Hosted Application
+http://react-album-app-dev.s3-website-us-east-1.amazonaws.com/albums
+
 ## Available Scripts
 
 In the project directory, you can run:

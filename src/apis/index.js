@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { CorrelationId } from './../utils/traceId';
 
 export const fetch = async (url) => {
   try {
@@ -18,6 +19,7 @@ export const post = async (url, payload) => {
     const data = JSON.stringify(payload);
     const token = 'token';
     const headers = {
+      TraceId: CorrelationId,
       //"token":token
       Authorization: token,
       Accept: '*/*',

@@ -47,34 +47,36 @@ function App() {
 
   return (
     <>
-      <Auth0Provider
+      {/* <Auth0Provider
         domain={domain}
         clientId={clientdID}
         redirectUri={window.location.origin}
         audiance={process.env.REACT_APP_AUDIANCE}
         scope="openid profile email"
-      >
-        <Provider store={store}>
-          <Router>
-            <Layout>
-              <Suspense fallback={<p>Loading...</p>}>
-                <Routes>
-                  {/* <Route exact path="/" element={<Home />} /> */}
-                  <Route exact path="/" element={<Albums />} />
-                  <Route exact path="/albums" element={<Albums />} />
-                  <Route path="/albums/:id" element={<AlbumDetails />} />
-                  <Route exact path="/accounts" element={<Home />} />
-                  <Route exact path="/cards" element={<ProtectedPage />} />
-
-                  {/* <ProtectedRoute path="/accounts" element={<Home />} auth={false} /> */}
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
-            </Layout>
-          </Router>
-        </Provider>
-        <ToastContainer closeButton={false} position="bottom-right" />
-      </Auth0Provider>
+      > */}
+      <Provider store={store}>
+        <Router>
+          <Layout>
+            <Suspense fallback={<p>Loading...</p>}>
+              <Routes>
+                <Route exact path="/" element={<Albums />} />
+                <Route exact path="/albums" element={<Albums />} />
+                <Route path="/albums/:id" element={<AlbumDetails />} />
+                <Route exact path="/support-request" element={<Home />} />
+                <Route exact path="/cards" element={<ProtectedPage />} />
+                {/* <ProtectedRoute
+                    path="/admin"
+                    element={<Home />}
+                    auth={false}
+                  /> */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </Layout>
+        </Router>
+      </Provider>
+      <ToastContainer closeButton={false} position="bottom-right" />
+      {/* </Auth0Provider> */}
     </>
   );
 }

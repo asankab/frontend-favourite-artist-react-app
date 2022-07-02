@@ -9,6 +9,9 @@ function Navbar(props) {
       <NavLink className={classes.active} to="/albums">
         Albums
       </NavLink>
+      <NavLink className={classes.active} to="/support-request">
+        Support Request
+      </NavLink>
       {/* <NavLink className={classes.active} to="/accounts">
         Transactions
       </NavLink>

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Input, Select, Button } from 'antd';
 const { TextArea } = Input;
 import classes from './CustomerForm.module.css';
+import { toast } from 'react-toastify';
 
 const { Option } = Select;
 const formItemLayout = {
@@ -25,95 +26,131 @@ const formItemLayout = {
 };
 
 function CustomerForm(props) {
-  const [name, setName] = useState();
-  const [title, setTitle] = useState();
-  const [email, setEmail] = useState();
-  const [about, setAbout] = useState();
+  const [name, setName] = useState('');
+  const [title, setTitle] = useState('');
+  const [nameError, setNameError] = useState({});
+  const [titleError, setTitleError] = useState({});
+
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [isValidForm, setIsValidForm] = useState(false);
+
+  useEffect(() => {
+    setIsInitialLoad(true);
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('handleSubmit');
-
-    // validate input
+    const isValidForm = formValidation();
 
     const payload = {
       name: name,
       title: title,
-      email: email,
-      about: about,
     };
 
     console.log(payload);
+
+    if (isValidForm) {
+      toast.success('Saved successfully!', {
+        position: 'top-right',
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+      });
+    }
+  };
+
+  const formValidation = () => {
+    const nameError = {};
+    const titleError = {};
+
+    let isValid = true;
+
+    if (name.trim().length < 5) {
+      nameError.firstNameTooShort = 'name is too short';
+      isValid = false;
+    }
+
+    if (name.trim().length > 10) {
+      nameError.firstNameTooLong = 'name is too long';
+      isValid = false;
+    }
+
+    if (title.trim().length < 5) {
+      titleError.titleTooShort = 'title is too short';
+      isValid = false;
+    }
+
+    if (title.trim().length > 10) {
+      titleError.titleTooLong = 'title is too long';
+      isValid = false;
+    }
+
+    setNameError(nameError);
+    setTitleError(titleError);
+    setIsInitialLoad(false);
+    setIsValidForm(isValid);
+
+    return isValid;
   };
 
   const handleNameChange = (event) => {
-    console.log(event.target.value);
     setName(event.target.value);
+    formValidation();
   };
 
   const handleTitleChange = (event) => {
-    console.log(event.target.value);
     setTitle(event.target.value);
-  };
-
-  const handleEmailChange = (event) => {
-    console.log(event.target.value);
-    setEmail(event.target.value);
-  };
-
-  const handleAboutChange = (event) => {
-    console.log(event.target.value);
-    setAbout(event.target.value);
+    formValidation();
   };
 
   const handleCancel = (event) => {
-    props.onCancel();
-
     // setName('');
     // setTitle('');
     // setEmail('');
     // setAbout('');
+
+    props.onCancel();
   };
+
+  const nameValidationError =
+    nameError['firstNameTooShort'] || nameError['firstNameTooLong'];
+
+  const titleValidationError =
+    titleError['titleTooShort'] || titleError['titleTooLong'];
 
   return (
     <>
       <Form {...formItemLayout} onSubmit={handleSubmit}>
-        <Form.Item label="Name *" hasFeedback validateStatus="error">
+        <Form.Item
+          label="Name *"
+          hasFeedback={!isInitialLoad}
+          validateStatus={nameValidationError ? 'error' : 'success'}
+          help={nameValidationError}
+        >
           <Input
             placeholder="Name"
-            id="validating"
+            id="name"
             onChange={handleNameChange}
+            onBlur={handleNameChange}
           />
         </Form.Item>
 
-        <Form.Item label="Title *" hasFeedback validateStatus="success">
+        <Form.Item
+          label="Title *"
+          hasFeedback={!isInitialLoad}
+          validateStatus={titleValidationError ? 'error' : 'success'}
+          help={titleValidationError}
+        >
           <Input
             placeholder="Title"
-            id="validating"
+            id="title"
             onChange={handleTitleChange}
+            onBlur={handleTitleChange}
           />
         </Form.Item>
-
-        <Form.Item label="Email *" hasFeedback validateStatus="success">
-          <Input
-            placeholder="Email"
-            id="validating"
-            onChange={handleEmailChange}
-          />
-        </Form.Item>
-
-        <Form.Item label="About" hasFeedback validateStatus="success">
-          <TextArea
-            rows={6}
-            showCount
-            maxLength={100}
-            onChange={handleAboutChange}
-            placeholder="About"
-            id="validating"
-          />
-        </Form.Item>
+        <br />
         <div className={classes['actionButtonWrapper']}>
-          <Button type="primary" onClick={handleSubmit}>
+          <Button type="primary" disabled={!isValidForm} onClick={handleSubmit}>
             Submit
           </Button>
           &nbsp;

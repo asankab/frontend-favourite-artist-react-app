@@ -190,12 +190,14 @@ const Home = () => {
 
   return (
     <>
-      <h1>Home Page</h1>
+      {/* <h1>Home Page</h1> */}
       <div className={classes['Action-Button-Wrapper']}>
-        <Button onClick={showModal}>New Inquiery</Button>
+        <Button type="primary" onClick={showModal}>
+          New Inquiery
+        </Button>
       </div>
       <ModalDialog
-        title="Customer Form"
+        title="Inquiery Form"
         showDialog={isModalVisible}
         // onOk={handleOk}
         onCancel={handleCancel}

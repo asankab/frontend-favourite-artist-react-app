@@ -56,6 +56,8 @@ function CustomerForm(props) {
         draggable: false,
         progress: undefined,
       });
+
+      props.onCancel();
     }
   };
 

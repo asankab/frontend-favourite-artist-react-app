@@ -1,0 +1,12 @@
+.actionButtonWrapper {
+    float:right;
+    margin-bottom: 30px;
+}
+
+.invalid input {
+    font-size: 12px;
+    padding: 3px;
+    border: 1px solid red;
+    background-color:salmon;
+    display: none;
+}

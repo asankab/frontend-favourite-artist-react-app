@@ -8,6 +8,7 @@ import TableTwo from './../TableTwo/TableTwo';
 import Upload from './../Upload/Upload';
 
 import CustomerForm from './../../../container/Pages/Forms/CustomerForm';
+import CustomerFormV1 from './../../../container/Pages/Forms/CustomerFormV1';
 import ModalDialog from './../../../UI/Common/ModalDialog/ModalDialog';
 
 import classes from './Home.module.css';
@@ -204,7 +205,8 @@ const Home = () => {
         // onOk={handleOk}
         onCancel={handleCancel}
       >
-        <CustomerForm onCancel={handleCancel} />
+        {/* <CustomerForm onCancel={handleCancel} /> */}
+        <CustomerFormV1 onCancel={handleCancel} />
       </ModalDialog>
       <br />
       <Upload />

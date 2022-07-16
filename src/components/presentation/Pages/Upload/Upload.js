@@ -99,7 +99,7 @@ function Upload(props) {
     //make api call to upload
     axios
       .post(
-        'https://q6x9vaobpd.execute-api.us-east-1.amazonaws.com/dev/file-upload',
+        'https://xxxxx.execute-api.us-east-1.amazonaws.com/dev/file-upload',
         formData
       )
       .then(() => {
@@ -119,3 +119,5 @@ function Upload(props) {
 Upload.propTypes = {};
 
 export default Upload;
+
+//https://www.youtube.com/watch?v=IgAE-ycnb94

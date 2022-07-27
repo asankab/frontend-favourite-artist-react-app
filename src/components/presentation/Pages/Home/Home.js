@@ -7,6 +7,7 @@ import Highlighter from 'react-highlight-words';
 import TableComponent from './../Table/Table';
 import TableTwo from './../TableTwo/TableTwo';
 import Upload from './../Upload/Upload';
+import SimpleForm from './../../../forms/SimpleForm';
 
 import CustomerForm from './../../../container/Pages/Forms/CustomerForm';
 import CustomerFormV1 from './../../../container/Pages/Forms/CustomerFormV1';
@@ -194,6 +195,7 @@ const Home = () => {
 
   return (
     <>
+      <SimpleForm></SimpleForm>
       {/* <h1>Home Page</h1> */}
       <div className={classes['Action-Button-Wrapper']}>
         <Button type="primary" onClick={showModal}>
@@ -210,6 +212,7 @@ const Home = () => {
         <CustomerFormV1 onCancel={handleCancel} />
       </ModalDialog>
       <br />
+      <h2>File Upload & Retreive</h2>
       <Upload />
       <br />
       <TableTwo />

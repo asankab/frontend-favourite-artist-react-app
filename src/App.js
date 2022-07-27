@@ -4,25 +4,29 @@ import { Provider } from 'react-redux';
 import store from './../src/store/index';
 import { ToastContainer } from 'react-toastify';
 import './../node_modules/react-toastify/dist/ReactToastify.css';
+// const dotenv = require('dotenv');
+// dotenv.config();
+
+console.log('process.env', process.env);
 
 import Layout from './components/UI/Layout/Layout';
 import Albums from './components/container/Pages/Albums/Albums';
 // import Home from './components/presentation/Pages/Home/Home';
 // import AlbumDetails from './components/presentation/Pages/Albums/AlbumDetails';
 import NotFound from './components/UI/Common/NotFound';
-import { Auth0Provider } from '@auth0/auth0-react';
+// import { Auth0Provider } from '@auth0/auth0-react';
 // import { useNavigate } from 'react-router-dom';
 
 import ProtectedPage from './components/presentation/Pages/ProtectedPages/ProtectedPage';
 
-import ProtectedRoute from './routes/ProtectedRoute';
+// import ProtectedRoute from './routes/ProtectedRoute';
 // import { useAuth0 } from '@auth0/auth0-react';
 
 import './App.css';
 
 function App() {
-  const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-  const clientdID = process.env.REACT_APP_AUTH0_CLIENT_ID;
+  // const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+  // const clientdID = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
   // const navigate = useNavigate();
 

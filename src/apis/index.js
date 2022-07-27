@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { CorrelationId } from './../utils/traceId';
-
+//console.log('REACT_APP_API_KEY', process.env.REACT_APP_API_KEY);
 export const fetch = async (url) => {
   try {
     const response = await axios.get(
       `${url}&api_key=${process.env.REACT_APP_API_KEY}`
     );
+    console.log('response:',response);
     return response;
   } catch (err) {
     console.log(err);
